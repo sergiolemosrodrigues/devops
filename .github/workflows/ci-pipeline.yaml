@@ -7,27 +7,27 @@ jobs:
  build-test:
   runs-on: ubuntu-latest
 
- steps:
- - name: Checkout Repo
-   uses: actions/checkout@v4 
+  steps:
+   - name: Checkout Repo
+     uses: actions/checkout@v4 
 
- - name: Setup node
-   uses: actions/setup-node@v4
-   with:
-     node-version: '15.0.1'
-     cache: 'npm'
+   - name: Setup node
+     uses: actions/setup-node@v4
+     with:
+       node-version: '15.0.1'
+       cache: 'npm'
 
- - name: Install dependencies
-   run: npm install
+   - name: Install dependencies
+     run: npm install
 
- - name: Run Lint
-   run: npm run lint
+   - name: Run Lint
+     run: npm run lint
 
- - name: Run Formatter
-   run: npm run prettier --write
+   - name: Run Formatter
+     run: npm run prettier --write
 
- - name: Run Test
-   run: CI=true npm run test
+   - name: Run Test
+     run: CI=true npm run test
 
- - name: Run Build
-   run: npm run build
+   - name: Run Build
+     run: npm run build
